@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeatNation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&family=Rubik+Glitch&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(145deg, #0a0a0a, #1e1e1e);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    header {
+      width: 100%;
+      padding: 25px 40px;
+      background: #0d0d0d;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc;
+    }
+
+    .credits-display {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #00ffcc;
+      font-family: 'Orbitron', sans-serif;
+      margin-left: -20px;
+    }
+
+    .popup {
+      background: radial-gradient(circle at top left, #1f1f1f, #0e0e0e);
+      border: 2px solid #333;
+      border-radius: 20px;
+      padding: 60px;
+      margin-top: 60px;
+      width: 90%;
+      max-width: 1000px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0, 255, 204, 0.3);
+      animation: glowFade 2s ease-in-out infinite alternate;
+    }
+
+    .popup h2 {
+      color: #ffae00;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #ffae00;
+    }
+
+    .popup p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #ddd;
+    }
+
+    .popup strong {
+      color: #00ffcc;
+    }
+
+    .button {
+      margin-top: 40px;
+      padding: 20px 50px;
+      font-size: 1.2rem;
+      background: linear-gradient(45deg, #00ffcc, #007bff);
+      color: black;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.4s ease, transform 0.2s ease;
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.6);
+    }
+
+    .button:hover {
+      transform: scale(1.05) rotate(-1deg);
+      background: linear-gradient(45deg, #00ccaa, #0055cc);
+      box-shadow: 0 0 30px rgba(0, 255, 204, 0.8);
+    }
+
+    .button:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+    }
+
+    .submit-section, .congrats-section {
+      margin-top: 40px;
+      display: none;
+      text-align: center;
+    }
+
+    .congrats-section h3 {
+      color: #00ffcc;
+      font-size: 1.6rem;
+    }
+
+    .congrats-section p {
+      font-size: 1.2rem;
+    }
+
+    .reviews-container {
+      margin-top: 60px;
+      width: 100%;
+      overflow: hidden;
+      background: #111;
+      padding: 20px 0;
+      border-top: 2px solid #00ffcc;
+      border-bottom: 2px solid #00ffcc;
+    }
+
+    .reviews-marquee {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scrollReviews 45s linear infinite;
+      font-size: 1rem;
+      color: #aaa;
+    }
+
+    .review {
+      display: inline-block;
+      margin: 0 40px;
+    }
+
+    .stars {
+      color: gold;
+      margin-left: 5px;
+    }
+
+    .footer-link {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #888;
+    }
+
+    .footer-link a {
+      color: #00ffcc;
+      text-decoration: underline;
+    }
+
+    @keyframes glowFade {
+      0% {
+        box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+      }
+      100% {
+        box-shadow: 0 0 40px rgba(0, 255, 204, 0.5);
+      }
+    }
+
+    @keyframes scrollReviews {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">BeatNation</div>
+    <div class="credits-display">Credits: <span id="credit-count">0</span></div>
+  </header>
+  <div class="popup">
+    <h2>$50 BeatStars Promotional Credits by BeatNation!</h2>
+    <p>
+      🎉 Welcome, music creators! 🎶<br><br>
+      We're excited to announce a special giveaway! BeatNation has <strong>partnered with the referral team</strong> to bring you an irresistible opportunity.<br><br>
+      Sign up using our exclusive link and you'll be entered for a chance to <strong>win $50 in BeatStars promotional credits</strong>. Don't miss your chance to elevate your music career!
+    </p>
+    <a class="button" href="https://samplefocus.com/invite/uN5unDlF" target="_blank" onclick="showSubmitSection()">Sign up now!</a>
+
+    <div class="submit-section" id="submit-section">
+      <p>✅ Almost done! Please complete this easy 2-question form to submit your credit:</p>
+      <a class="button" href="https://docs.google.com/forms/d/e/1FAIpQLSfFvssA2eiCJioWZ3VhAnrpkTTgkQ02pmLNzidG-yY7B8EFfg/viewform?usp=sharing&ouid=104128775956546363390" target="_blank">Submit Credit</a>
+      <br><br>
+      <button class="button" onclick="showCongrats()">Complete</button>
+    </div>
+
+    <div class="congrats-section" id="congrats-section">
+      <h3>🎉 Congrats!</h3>
+      <p>You just earned 1 credit! You'll be notified if you win.<br>
+         The more credits you have, the more chances you have of winning!</p>
+      <p style="font-size: 1.5rem; margin-top: 10px;">Total Credits: <span id="credit-count-large">1</span></p>
+      <button class="button" onclick="resetToSignup()">Go Back</button>
+    </div>
+  </div>
+
+  <div class="reviews-container">
+    <div class="reviews-marquee">
+      <span class="review">🔥 "This promo helped me blow up my BeatStars traffic overnight!" – DJ Metro <span class="stars">★★★★★</span></span>
+      <span class="review">🎧 "I got featured the same week I used the credits! Unreal!" – Lola Beats <span class="stars">★★★★★</span></span>
+      <span class="review">💥 "Insane value. Legit opportunity for producers starting out!" – 808Gawd <span class="stars">★★★★★</span></span>
+      <span class="review">🎹 "It actually works. BeatNation is the plug fr 💯" – SynthLord <span class="stars">★★★★★</span></span>
+      <span class="review">🎶 "I've tripled my sales since joining this giveaway." – BeatChef <span class="stars">★★★★★</span></span>
+      <span class="review">🎛️ "Took my page from ghost town to booming!" – TrapTonic <span class="stars">★★★★★</span></span>
+      <span class="review">🚀 "Best promo tool I've used this year." – BassNova <span class="stars">★★★★★</span></span>
+      <span class="review">🎤 "Perfect for new artists needing exposure!" – MicTheory <span class="stars">★★★★★</span></span>
+    </div>
+  </div>
+
+  <div class="footer-link">
+    <a href="https://docs.google.com/document/d/1Nr6XYrbT6h7O0NEqzqtrWbc9WcOFlzmOaGEvez3syV0/edit?usp=sharing" target="_blank">Terms and Conditions and Privacy Policy</a>
+  </div>
+
+  <script>
+    let credits = 0;
+
+    function showSubmitSection() {
+      document.getElementById('submit-section').style.display = 'block';
+      document.getElementById('congrats-section').style.display = 'none';
+    }
+
+    function showCongrats() {
+      credits++;
+      document.getElementById('credit-count').innerText = credits;
+      document.getElementById('credit-count-large').innerText = credits;
+      document.getElementById('congrats-section').style.display = 'block';
+      document.getElementById('submit-section').style.display = 'none';
+    }
+
+    function resetToSignup() {
+      document.getElementById('submit-section').style.display = 'none';
+      document.getElementById('congrats-section').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
